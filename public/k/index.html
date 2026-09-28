@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>İkilem: oy ver</title>
+  <meta name="theme-color" content="#f2f3f8">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/archivo-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/ikilem.css">
+</head>
+<body class="ogrenci">
+  <header class="ust">
+    <a class="marka" href="/">İkilem</a>
+    <div class="ust-sag" id="ustSag" hidden>
+      <span class="kod-rozet" id="kod" aria-label="Oturum kodu"></span>
+      <span class="canli"><span class="nokta" id="nokta"></span><span id="katilim">0 kişi</span></span>
+    </div>
+  </header>
+
+  <main class="oy-alani" id="alan" hidden>
+    <h1 class="soru" id="soru">Yükleniyor</h1>
+    <div class="secenekler" role="group" aria-labelledby="soru">
+      <button class="secenek s1" id="sec1" type="button" data-secim="1">
+        <span class="yazi yazi-acik"><span class="no">1</span><span class="ad" data-ad="1"></span><span class="oran" data-oran="1"></span></span>
+        <span class="yazi yazi-koyu" aria-hidden="true"><span class="no">1</span><span class="ad" data-ad="1"></span><span class="oran" data-oran="1"></span></span>
+        <span class="isaret">Seçiminiz</span>
+      </button>
+      <button class="secenek s2" id="sec2" type="button" data-secim="2">
+        <span class="yazi yazi-acik"><span class="no">2</span><span class="ad" data-ad="2"></span><span class="oran" data-oran="2"></span></span>
+        <span class="yazi yazi-koyu" aria-hidden="true"><span class="no">2</span><span class="ad" data-ad="2"></span><span class="oran" data-oran="2"></span></span>
+        <span class="isaret">Seçiminiz</span>
+      </button>
+    </div>
+    <p class="bilgi" id="bilgi" aria-live="polite"></p>
+  </main>
+
+  <section class="kod-gir" id="kodGir" hidden>
+    <h1 id="kodGirBaslik">Oylamaya katılın</h1>
+    <p id="kodGirAciklama">Öğretmen ekranındaki 5 karakterlik kodu yazın.</p>
+    <form id="kodForm" novalidate>
+      <div class="kod-satir">
+        <input class="kod-girdi" id="kodGirdi" inputmode="text" autocomplete="off" autocapitalize="characters"
+               spellcheck="false" maxlength="5" size="5" placeholder="K7M2Q" aria-label="Katılım kodu">
+        <button class="tus tus-ana" type="submit">Katıl</button>
+      </div>
+    </form>
+  </section>
+
+  <p class="bildirim" id="bildirim" role="status" aria-live="polite"></p>
+  <script type="module" src="/assets/js/ogrenci.js"></script>
+</body>
+</html>

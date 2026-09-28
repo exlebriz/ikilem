@@ -1,0 +1,32 @@
+# İkilem — Netlify yapılandırması
+# Derleme adımı yoktur: "public" klasörü olduğu gibi yayınlanır,
+# "netlify/functions" içindeki dosyalar sunucusuz fonksiyon olur.
+
+[build]
+  publish = "public"
+  command = "echo 'Derleme gerekmiyor'"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Öğrenci bağlantısı: /k/KOD  ->  öğrenci ekranı
+[[redirects]]
+  from = "/k/*"
+  to = "/k/index.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
